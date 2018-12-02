@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.prj.iou.urlinterface.urlInterface">
+	<!-- DB에 데이터 저장 -->
+	<insert id="insertUrl" parameterType="com.prj.iou.vo.urlVo">
+		insert into main(title,url) values(#{title},#{url})
+	</insert>
+	<!-- DB에 저장된 전체 값 호출 -->
+	<select id="getTitle" resultType="com.prj.iou.vo.urlVo">
+		select * from main
+	</select>
+	<!-- 마지막 저장된 값 호출 -->
+	<select id="getLastTitle" resultType="com.prj.iou.vo.urlVo">
+		select * from main where title=#{title}
+	</select>
+	<!-- 요청받은 값 삭제 -->
+	<delete id="deleteUrl" parameterType="com.prj.iou.vo.urlVo">
+		delete from main where url=#{url}
+	</delete>
+</mapper>
